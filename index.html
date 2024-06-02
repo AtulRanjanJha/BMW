@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Commercial</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: aliceblue;
+            background-color: #0e0e0e;
+            overflow-x: hidden; /* Added to remove horizontal scrolling */
+
+        }
+
+        header {
+            background-color:transparent;
+            color: white;
+            padding: 0px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #home {
+            background: url('your-background-image.jpg') no-repeat center center/cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .tagline {
+            position: absolute;
+            top: 530px;
+            left: 20px;
+            font-weight: bold;
+            line-height: 1.2;
+            z-index: 1001; /* Ensuring it's above other elements */
+            animation: gradient-animation 5s ease infinite;
+            background: var(--gradient); /* Setting the gradient as background */
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+        }
+}
+
+        .tagline p{
+            font-size: 100px;
+        }
+        
+
+
+        #features, #specs, #contact {
+            background-color: #0e0e0e;
+            margin: 20px 0;
+        }
+
+        .feature, .spec {
+            background: rgb(15, 15, 15);
+            border: 1px solid #6a6969;
+            margin: 20px auto;
+            display: flex;
+            border-radius: 30px;
+            overflow: hidden;
+            max-width: 1000px; /* Added max-width to limit the width of the tiles */
+        }
+
+        .feature img, .spec img {
+            width: 50%;
+            object-fit: cover;
+            max-width: 200px; /* Reduced max-width to make images smaller */
+
+        }
+
+        .feature .text, .spec .text {
+            padding: 65px;
+            text-align: left;
+            width: 50%;
+        }
+
+        #about-us {
+            background: url('https://c4.wallpaperflare.com/wallpaper/907/346/421/car-logo-bmw-dark-wallpaper-preview.jpg') no-repeat center center/cover;
+            color: white;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            padding: 100px 20px; /* Increase padding to make the section taller */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-size: cover;            
+        }
+
+        #about-us .content {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        #about-us .content .head {
+            flex: 1; /* Take up 50% of the width */
+            text-align: left;
+            font-size: 60px;
+            margin-left: 30px;
+        }
+
+        #about-us .content .para {
+            flex: 1; /* Take up 50% of the width */
+            text-align: right;
+            font-size: 27px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+        
+        @media (max-width: 768px) {
+            .feature, .spec {
+                flex-direction: column;
+            }
+
+            .feature img, .spec img {
+                width: 100%;
+                height: 200px;
+                max-width: none; /* Reset max-width for smaller screens */
+            }
+
+            .feature .text, .spec .text {
+                width: 100%;
+                padding: 20px;
+            }
+        
+            #about-us {
+                padding: 100px 20px;
+            }
+        }
+            .contact-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-image img {
+                width: 40%;
+                height: auto;
+                flex: 1;
+            }
+            .form-container {
+    max-width: 400px;
+    padding: 20px;
+    border: 2px solid #65b0f6; 
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    margin-top: 20px;
+    flex: 1;
+    transition: border-color 0.5s; /* Adding transition for border color change */
+}
+
+.form-container:hover {
+    background-color:  linear-gradient(45deg, #13c7c7, #3962c9, #9e12c5, #60a3bc, #ef2112);
+ /* Change border color on hover */
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style form inputs */
+.form-container input[type=text], 
+.form-container input[type=email], 
+.form-container textarea {
+    width: calc(100% - 20px); /* Adjusting width to consider padding */
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: none; /* Remove default border */
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #b8b7b3; /* Dark background for inputs */
+    color: #ffffff; /* White text */
+}
+
+.form-container textarea {
+    height: 150px;
+}
+
+/* Style form button */
+.form-container button[type=submit] {
+    width: calc(100% - 20px); /* Adjusting width to consider padding */
+    padding: 12px 0; /* Adjusting padding */
+    background: linear-gradient(45deg, #13c7c7, #3962c9, #9e12c5, #60a3bc, #ef2112);
+    background-size: 400% 400%;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-position 1s ease-in-out, padding 0.5s; /* Adding transition for background and padding */
+}
+
+.form-container button[type=submit]:hover {
+    background-position: right center;
+    padding: 12px 20px; /* Adjusting padding on hover */
+}
+
+    
+    </style>
+    <link rel="icon" href="C:\Users\atul\Downloads\bmw (1).svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand text-white" href="#">Car Commercial</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#about-us">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#specs">Specifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="template-content" style="display: none;">
+        <!-- Content will be dynamically loaded here -->
+    </div>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+        </ol>
+        <div class="tagline">
+            <h1>Explore Innovation Embrace Performance</h1>
+            <p>Drive the Future</p>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img src="C:\Users\atul\Downloads\bmw-3-0-csl-mi-04.jpg" class="d-block w-100" alt="Image 6">
+            </div>
+            <div class="carousel-item">
+                <img src="C:\Users\atul\Downloads\bmw-3-0-csl-mi-07.jpg" class="d-block w-100" alt="Image 4">
+            </div>
+            <div class="carousel-item active">
+                <img src="C:\Users\atul\Downloads\bmw-3-0-csl-mi-02.jpg" class="d-block w-100" alt="Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="C:\Users\atul\Downloads\bmw-3-0-csl-mi-03.jpg" class="d-block w-100" alt="Image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="C:\Users\atul\Downloads\bmw-3-0-csl-mi-01.jpg" class="d-block w-100" alt="Image 3">
+            </div>
+            <div class="carousel-item">
+                <img src="C:\Users\atul\Downloads\bmw-3-0-csl-mi-06.jpg" class="d-block w-100" alt="Image 5">
+            </div>
+            <div class="carousel-item">
+                <img src="C:\Users\atul\Downloads\bmw-3-0-csl-mi-05.jpg" class="d-block w-100" alt="Image 7">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <section id="features">
+        <h1 style="color: white; text-shadow: #6a6969;">Features</h1>
+        <div class="feature technology" data-feature="technology" data-aos="fade-up">
+            <img src="https://preview.thenewsmarket.com/Previews/ATFR/StillAssets/1920x1080/633406.jpg" alt="Advanced Technology">
+            <div class="text">
+                <h3>Advanced Technology</h3>
+                <p>Experience cutting-edge technology with our latest models. <a href="https://www.bmw-m.com/en/all-models/overview-m-and-m-performance/bmw-3-0-csl/2022/bmw-3-0-csl.html#:~:text=LIGHTWEIGHT%20CONSTRUCTION.,on%20virtually%20all%20bodywork%20sections.">read more..</a></p>
+            </div>
+        </div>
+        <div class="feature comfort" data-feature="comfort" data-aos="fade-up">
+            <img src="https://imgd.aeplcdn.com//642x361//n/cw/ec/136019/dashboard7.jpeg?isig=0" alt="Luxurious Comfort">
+            <div class="text">
+                <h3>Luxurious Comfort</h3>
+                <p>Enjoy unparalleled comfort and style on the road.</p>
+            </div>
+        </div>
+        <div class="feature performance" data-feature="performance" data-aos="fade-up">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKIAEEBbUGogfAwFtP4KwCzL8Vn-oL48hleg&usqp=CAU" alt="Top-notch Performance">
+            <div class="text">
+                <h3>Top-notch Performance</h3>
+                <p>Unleash the power of a high-performance engine. <a href="https://www.motortrend.com/news/2024-bmw-3-0-csl-first-look-review/">read more..</a></p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="about-us">
+        <div class="content">
+            <div class="head" data-aos="fade-left">
+                <p>About Us</p>
+            </div>
+            <div class="para" data-aos="fade-right">
+                <p>We are dedicated to providing the best cars with top-notch technology, luxurious comfort, and exceptional performance. Our commitment to excellence ensures that every car we produce is of the highest quality and meets the highest standards.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="specs">
+        <h1>Specifications</h1>
+        <div class="spec engine" data-feature="Engine" data-aos="fade-up">
+            <img src="https://cdn.bmwblog.com/wp-content/uploads/2018/06/BMW-M850i-engine.jpg" alt="Engine">
+            <div class="text">
+                <h3>Engine</h3>
+                <p>3.0L Twin-Turbo Inline-6, 500 HP. <a href="https://www.caranddriver.com/news/a42062536/bmw-30-csl-revealed-details/">read more..</a></p>
+            </div>
+        </div>
+        <div class="spec performance" data-feature="high-performance" data-aos="fade-up">
+            <img src="https://www.motortrend.com/uploads/f/154485966.jpg" alt ="Performance">
+            <div class="text">
+                <h3>Performance</h3>
+                <p>0-60 mph in 3.8 seconds, top speed of 155 mph. <a href="https://zeperfs.com/en/fiche2471-bmw-3-0-csl.html">read more..</a></p>
+            </div>
+        </div>
+        <div class="spec fuel-efficiency" data-feature="fuel-efficiency" data-aos="fade-up">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0Ke3IXc4kpIThS3VK5dkrJvJio2C4oa1oBA&usqp=CAU" alt="Fuel Efficiency">
+            <div class="text">
+                <h3>Fuel Efficiency</h3>
+                <p>22 mpg city / 30 mpg highway. <a href="https://www.concorsodeleganzavilladeste.com/participants/bmw-3-0-csl-3/#:~:text=Special%20Exhibition&text=The%20BMW%203.0%20CSL%20(fuel,performance%20experience%20in%20two%20seats.">read more..</a></p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container contact-container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="logo-container">
+                        <img src="C:\Users\atul\Downloads\file (8).png" alt="Company Logo" style="width: 500px;">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-container">
+                        <h2>Contact Us</h2>
+                        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="4c343987-67c7-4a3f-b88d-1d1d1856170f">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <textarea name="message" placeholder="Your Message" required></textarea>
+                            <button type="submit">Submit</button>
+                        </form>
+                        <script src="https://web3forms.com/client/script.js" async defer></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Car Commercial. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        let navbarHidden = false;
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Scroll down
+                if (!navbarHidden) {
+                    navbar.style.transform = 'translateY(-100%)';
+                    navbarHidden = true;
+                }
+            } else {
+                // Scroll up
+                if (navbarHidden) {
+                    navbar.style.transform = 'translateY(0)';
+                    navbarHidden = false;
+                }
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+    </script>
+  
+    
+    <script>
+        AOS.init();
+        
+    </script>
+    
+
+</body>
+</html>
